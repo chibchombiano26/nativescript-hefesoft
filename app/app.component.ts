@@ -16,22 +16,14 @@ import {horizonService} from "./services/horizon"
 })
 export class AppComponent implements OnInit {
     public counter: number = 16;
+    private messages : any;
 
     constructor(private horizonService :horizonService) {        
-        
+        this.messages = this.horizonService.horizon("Nativescript");
     }
     
     public get message(): string {
 
-       let messages = this.horizonService.horizon("Nativescript");
-
-        messages.store({
-            sender: "Native script",
-            time: new Date(),
-            text: "Hello, World!"
-        })        
-        
-      
         if (this.counter > 0) {
             return this.counter + " taps left";
         } else {
@@ -42,6 +34,13 @@ export class AppComponent implements OnInit {
 
     public onTap() {
         this.counter--;
+
+        messages.insert({
+            sender: "Native script",
+            time: new Date(),
+            text: "Hello, World!"
+        })        
+
     }
     ngOnInit() {
         
