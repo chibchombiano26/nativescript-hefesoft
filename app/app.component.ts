@@ -23,13 +23,13 @@ export class AppComponent implements OnInit {
     
     public get message(): string {
 
-       /*let messages = this.horizonService.horizon("Nativescript");
+       let messages = this.horizonService.horizon("Nativescript");
 
         messages.store({
             sender: "Native script",
             time: new Date(),
             text: "Hello, World!"
-        })*/        
+        })        
         
       
         if (this.counter > 0) {
